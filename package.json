@@ -1,0 +1,22 @@
+{
+  "name": "pawfect",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c blue,magenta \"npm run dev -w @pawfect/api\" \"npm run dev -w @pawfect/web\"",
+    "build": "npm run build -w @pawfect/api && npm run build -w @pawfect/web",
+    "db:init": "npm run db:init -w @pawfect/api",
+    "db:seed": "npm run db:seed -w @pawfect/api",
+    "dev:preview": "npm run dev -w @pawfect/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
